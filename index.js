@@ -5,12 +5,16 @@ const express = require('express');
 // Initialize the app object.
 const app = express();
 
+// Define the view engine.
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
+
 // Direct the app to the "Places" controller.
 app.use('/places', require('./controllers/places'));
 
 // Create a homepage route.
 app.get('/', (req, res) => {
-    res.send('Hello world!')
+    res.render('home')
 });
 
 // Wildcard route.
