@@ -1,6 +1,7 @@
 // Require needed modules.
 require('dotenv').config();
 const express = require('express');
+//const error404 = require('./error404');
 
 // Initialize the app object.
 const app = express();
@@ -19,7 +20,7 @@ app.get('/', (req, res) => {
 
 // Wildcard route.
 app.get('*', (req, res) => {
-    res.status(404).send('<h1>404 Page</h1>');
+    res.status(404).render('error404');
 });
 
 // Listen for connections.
