@@ -1,7 +1,6 @@
 // Require needed modules.
 require('dotenv').config();
 const express = require('express');
-//const error404 = require('./error404');
 
 // Initialize the app object.
 const app = express();
