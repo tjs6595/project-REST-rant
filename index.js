@@ -2,7 +2,6 @@
 require('dotenv').config();
 const express = require('express');
 
-
 // Initialize the app object.
 const app = express();
 
