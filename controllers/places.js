@@ -19,4 +19,20 @@ router.get('/', (req, res) => {
     res.render('places/index.jsx', {places})
 });
 
+// Get /create.
+router.get('/', (req, res) => {
+    res.render('places/create.jsx')
+});
+
+// Get /edit.
+router.get('/', (req, res) => {
+    res.render('places/edit.jsx')
+});
+
+// Get /show.
+router.get('/', (req, res) => {
+    res.render('places/show.jsx')
+});
+
+
 module.exports = router;
