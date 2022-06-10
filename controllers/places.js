@@ -8,13 +8,17 @@ router.get('/', (req, res) => {
         city: 'Seattle',
         state: 'WA',
         cuisines: 'Thai, Pan-Asian',
-        pic: 'http://placekitten.com/250/250'
+        pic: '/images/Restaurant 1.jpg',
+        author:'https://unsplash.com/@tamarushphotos?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
+        link:'https://unsplash.com/s/photos/free-image-restaurant?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
       }, {
         name: 'Coding Cat Cafe',
         city: 'Phoenix',
         state: 'AZ',
         cuisines: 'Coffee, Bakery',
-        pic: 'http://placekitten.com/250/250'
+        pic: '/images/Restaurant 2.jpg',
+        author:'https://unsplash.com/@tamarushphotos?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
+        link:'https://unsplash.com/s/photos/free-image-restaurant?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
       }];     
     res.render('places/index.jsx', {places})
 });
