@@ -1,6 +1,11 @@
 // Require needed modules.
 const router = require('express').Router()
 
+// Get /new.
+router.get('/new', (req, res) => {
+    res.render('places/new.jsx')
+});
+
 // Get /places.
 router.get('/', (req, res) => {
     let places = [{
@@ -20,13 +25,10 @@ router.get('/', (req, res) => {
         author:'https://unsplash.com/@tamarushphotos?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
         link:'https://unsplash.com/s/photos/free-image-restaurant?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
       }];     
-    res.render('places/index.jsx', {places})
+    res.render('/places/:id', {places})
 });
 
-// Get /create.
-router.get('/', (req, res) => {
-    res.render('places/create.jsx')
-});
+
 
 // Get /edit.
 router.get('/', (req, res) => {
