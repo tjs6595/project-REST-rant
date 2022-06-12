@@ -8,9 +8,10 @@ router.get('/new', (req, res) => {
 
 // Post new Place Entry.
 router.post('/', (req, res) => {
+    console.log(req.body)
     //res.render('places')
     //res.redirect('/places')
-    res.send('/places stub');
+    res.send('POST /places');
 });
 
 // Get /places.
