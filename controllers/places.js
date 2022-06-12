@@ -1,5 +1,6 @@
 // Require needed modules.
 const router = require('express').Router()
+const places = require('../models/places.js')
 
 // Get /new.
 router.get('/new', (req, res) => {
@@ -8,31 +9,24 @@ router.get('/new', (req, res) => {
 
 // Post new Place Entry.
 router.post('/', (req, res) => {
-    console.log(req.body)
-    //res.render('places')
-    //res.redirect('/places')
-    res.send('POST /places');
+    if (!req.body.pic){
+      //Default image if one is not provided.
+      req.body.pic = 'http://placekitten.com/400/400'
+    }
+    if (!req.body.city){
+      //Default city if one is not provided.
+      req.body.city = 'Anytown'
+    }
+    if (!req.body.state){
+      //Default state if one is not provided.
+      req.body.state = 'USA'
+    }
+    places.push(req.body);
+    res.redirect('/places');
 });
 
 // Get /places.
-router.get('/', (req, res) => {
-    let places = [{
-        name: 'H-Thai-ML',
-        city: 'Seattle',
-        state: 'WA',
-        cuisines: 'Thai, Pan-Asian',
-        pic: '/images/Restaurant 1.jpg',
-        author:'https://unsplash.com/@tamarushphotos?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
-        link:'https://unsplash.com/s/photos/free-image-restaurant?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
-      }, {
-        name: 'Coding Cat Cafe',
-        city: 'Phoenix',
-        state: 'AZ',
-        cuisines: 'Coffee, Bakery',
-        pic: '/images/Restaurant 2.jpg',
-        author:'https://unsplash.com/@tamarushphotos?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
-        link:'https://unsplash.com/s/photos/free-image-restaurant?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
-      }];     
+router.get('/', (req, res) => {   
     res.render('places/index', {places})
 });
 
