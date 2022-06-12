@@ -13,6 +13,9 @@ function index(data){
                 <p className="text-center">
                     Located in {place.city}, {place.state}
                 </p>
+                <a href="places">
+                    <button className="btn-index">Place Details Page</button>
+                </a>
             </div>
         )
     });
@@ -23,6 +26,9 @@ function index(data){
                 <div className="row">
                     {placesFormatted} 
                 </div>
+                <a href="/places/new">
+                    <button className="btn-new">Add New Place</button>
+                </a>
             </main>
         </Def>
     )
