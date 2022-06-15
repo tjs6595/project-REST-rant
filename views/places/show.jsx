@@ -1,11 +1,18 @@
 const React = require('react');
+const places = require('../../models/places.js');
 const Def = require('../default.jsx');
 
 function show(data){
     return(
         <Def>
             <main>
-                <h1>{data.place.name}</h1>
+                <h2 href={`/places/${data.id}`}>
+                    {data.place.name}
+                </h2>
+                <img href={`/places/${data.id}`} src={data.place.pic} alt={data.place.name}></img>
+                <h2 href={`/places/${data.id}`}>{data.place.city}</h2>
+                <h2 href={`/places/${data.id}`}>{data.place.state}</h2>
+                <h2 href={`/places/${data.id}`}>{data.place.cuisines}</h2>
                 <div>
                     <h2>Ratings</h2>
                     <p>Currently Unrated</p>
@@ -25,7 +32,6 @@ function show(data){
                     </form>
                 </div>
             </main>
-            <h4>Currently Unrated</h4>
         </Def>
     )
 };
