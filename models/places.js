@@ -12,6 +12,11 @@ const placeSchema = new mongoose.Schema({
   founded: Number
 })
 
+// DEFINE THE showEstablished INSTANCE METHOD
+placeSchema.methods.showEstablished = function() {
+  return `${this.name} has been serving ${this.city}, ${this.state} since ${this.founded}.`
+}
+
 // EXPORT THE PLACE MODEL SO IT CAN BE USED THROUGHOUT THE PROJECT
 module.exports = mongoose.model('Place', placeSchema)
 
