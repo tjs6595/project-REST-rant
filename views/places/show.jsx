@@ -7,9 +7,6 @@ function show(data){
         <Def>
             <main>
                 <div className='row'>
-                    {/* <h2 href={`/places/${data.id}`}>
-                        {data.place.name}
-                    </h2> */}
                     <div className="col-sm-6">
                         <img src={data.place.pic} alt={data.place.name}></img>
                         <h3>
