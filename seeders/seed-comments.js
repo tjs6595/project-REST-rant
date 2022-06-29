@@ -4,17 +4,17 @@ const db = require('../models')
 // FUNCTION FOR SEEDING COMMENTS
 async function seed(){
     // GET THE PLACE, IN THIS CASE H-THAI-ML
-    let place = await db.Place.findOne({name: 'H-Thai-ML'})
+    let place = await db.Place.findOne({name: 'Coding Cat Cafe'})
 
     // CREATE A FAKE SAMPLE COMMENT
     let comment = await db.Comment.create({
-        author: 'Famished Fran',
-        rant: false,
-        stars: 5.0,
-        content: 'Wow, simply amazing! Highly Recommended!'
+        author: 'Starvin Marvin',
+        rant: true,
+        stars: 1.5,
+        content: 'Still Hungry!'
     })
 
-    // ADD THAT COMMENT TO TEH PLACE'S COMMENT ARRAY
+    // ADD THAT COMMENT TO THE PLACE'S COMMENT ARRAY
     place.comments.push(comment.id)
 
     // SAVE THE PLACE NOW THAT IT HAS A COMMENT
