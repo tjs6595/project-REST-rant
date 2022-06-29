@@ -81,8 +81,7 @@ router.get('/:id/edit', (req, res) => {
 })
 
 // POST A RANT
-router.post('/:id/rant', (req, res) => {
-  console.log(req.body)
+router.post('/:id/comment', (req, res) => {
   db.Place.findById(req.params.id)
   .then(place => {
     db.Comment.create(req.body)
@@ -91,6 +90,7 @@ router.post('/:id/rant', (req, res) => {
       place.save()
       .then(() => {
         res.redirect(`/places/${req.params.id}`)
+        console.log(req.body)
       })
     })
     .catch(err => {
@@ -111,7 +111,13 @@ router.post('/:id/rant', (req, res) => {
 
 // LOAD THE PLACES COMMENT PAGE
 router.get('/:id/comment', (req, res) => {
-  res.render('places/comment')
+  db.Place.findById(req.params.id)
+  .then(place => {
+    res.render(`places/comment`, {place})
+    })
+  .catch(err => {
+    res.render('error404')
+  })
 })
 
 // DELETE A RANT
